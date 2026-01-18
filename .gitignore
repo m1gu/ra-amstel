@@ -1,0 +1,16 @@
+# IDEs
+.vscode/
+.idea/
+.gemini/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project specific
+node_modules/
+dist/
+video-mp4/
+animacion-lottie/
+*.tmp
+*.log

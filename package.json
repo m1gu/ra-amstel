@@ -1,0 +1,24 @@
+{
+  "name": "demo-amstel",
+  "version": "1.0.0",
+  "description": "Demo AR for Amstel beers using Web Technologies",
+  "main": "index.html",
+  "dependencies": {
+    "mind-ar": "^1.2.5",
+    "three": "^0.150.0",
+    "lottie-web": "^5.12.2"
+  },
+  "scripts": {
+    "dev": "npx serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "AR",
+    "Amstel",
+    "MindAR",
+    "Three.js",
+    "Lottie"
+  ],
+  "author": "",
+  "license": "ISC"
+}
