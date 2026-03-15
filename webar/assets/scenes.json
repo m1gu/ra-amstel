@@ -1,0 +1,1021 @@
+{
+  "scenes": [
+    {
+      "id": "scene_1772387197405_0",
+      "name": "Escena 1",
+      "targetImageIndex": 0,
+      "elements": [
+        {
+          "id": "el_1772387201487_2l01j",
+          "type": "lottie",
+          "url": "animations/jarro-1/1-1/Jarro 1-1.json",
+          "name": "Jarro 1-1.json",
+          "position": [
+            0,
+            0.8806538966094005,
+            0.05491151230422786
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1,
+            1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772387256956_sgoh1",
+          "type": "lottie",
+          "url": "animations/jarro-1/1-3/Jarro 1-3.json",
+          "name": "Jarro 1-3.json",
+          "position": [
+            0,
+            -0.1157125458782991,
+            0.22156976256134742
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.3,
+            1
+          ],
+          "appearAt": 1.5,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": false
+        },
+        {
+          "id": "el_1772387320672_h84bw",
+          "type": "lottie",
+          "url": "animations/jarro-1/1-5/Jarro 1-5.json",
+          "name": "Jarro 1-5.json",
+          "position": [
+            -0.8291991336455856,
+            0.8743140063923163,
+            0.16821991592141605
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "appearAt": 2,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "flagWave": true
+        },
+        {
+          "id": "el_1772387368167_j1efj",
+          "type": "lottie",
+          "url": "animations/jarro-1/1-6/Jarro 1-6.json",
+          "name": "Jarro 1-6.json",
+          "position": [
+            0.5763014235756556,
+            -0.7961266928515555,
+            0.6695213239121216
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "appearAt": 2.5,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772387535866_m1bo1",
+          "type": "video",
+          "url": "videos/video-goles.mp4",
+          "name": "video-goles.mp4",
+          "position": [
+            0,
+            -0.022495971917233737,
+            0.45018064421690696
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.7,
+            0.7,
+            0.5
+          ],
+          "appearAt": 4,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772470183683_9d3vr",
+          "type": "lottie",
+          "url": "animations/jarro-1/1-8/Jarro 1-8.json",
+          "name": "Jarro 1-8.json",
+          "position": [
+            0.9500727477154843,
+            -0.25515912650218536,
+            0.6551518542325035
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "appearAt": 1.5,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1773196404401_1o0ez",
+          "type": "obj3d",
+          "url": "models/balon.glb",
+          "name": "Balon",
+          "position": [
+            -0.8842323123304908,
+            0.3280658136851844,
+            0.5300641697767412
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "autoRotate": true,
+          "autoRotateSpeed": 1
+        },
+        {
+          "id": "el_1773196507501_lts4e",
+          "type": "obj3d",
+          "url": "models/balon.glb",
+          "name": "Balon",
+          "position": [
+            0.8750044456435306,
+            0.32,
+            0.53
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "autoRotate": true,
+          "autoRotateSpeed": 1
+        },
+        {
+          "id": "el_1773385942231_g0x3s",
+          "type": "obj3d",
+          "url": "models/copa-final5.glb",
+          "name": "Nuevo Modelo 3D",
+          "position": [
+            0.6796776561775044,
+            0.45460311041924584,
+            0.1995655754551824
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "autoRotate": true,
+          "autoRotateSpeed": 1
+        },
+        {
+          "id": "el_1773388128256_57s26",
+          "type": "lottie",
+          "url": "animations/video-frame/videoframe.json",
+          "name": "Nueva Animación",
+          "position": [
+            0,
+            -0.015299528240860338,
+            0.4470231011329244
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            2,
+            1.4,
+            1
+          ],
+          "appearAt": 4,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": false
+        },
+        {
+          "id": "el_1773388442839_bbiav",
+          "type": "lottie",
+          "url": "animations/jugador/jugador.json",
+          "name": "Nueva Animación",
+          "position": [
+            -0.6503430084852939,
+            -0.7427257529579859,
+            0.7097148064990677
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            0.8,
+            1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": true
+        }
+      ]
+    },
+    {
+      "id": "scene_1772396568749_1",
+      "name": "Escena 2",
+      "targetImageIndex": 1,
+      "elements": [
+        {
+          "id": "el_1772396594896_unlig",
+          "type": "lottie",
+          "url": "animations/jarro-2/2-1/Jarro 2-1.json",
+          "name": "Jarro 2-1.json",
+          "position": [
+            0,
+            0.8482657004130263,
+            0.06937545114466565
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1.3,
+            1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772396641803_reeyf",
+          "type": "lottie",
+          "url": "animations/jarro-2/2-2/Jarro 2-2.json",
+          "name": "Jarro 2-2.json",
+          "position": [
+            0.5224555312212991,
+            -1.0189236848965395,
+            0.7170352221352749
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            0.8,
+            1
+          ],
+          "appearAt": 0.5,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772396682479_fxtmc",
+          "type": "lottie",
+          "url": "animations/jarro-2/2-3/Jarro 2-3.json",
+          "name": "Jarro 2-3.json",
+          "position": [
+            0.8470914322619545,
+            0.9612746232469783,
+            0.17587827675348744
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1.3,
+            1
+          ],
+          "appearAt": 1,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772396747555_qplyv",
+          "type": "lottie",
+          "url": "animations/jarro-2/2-4/Jarro 2-4.json",
+          "name": "Jarro 2-4.json",
+          "position": [
+            -0.5531707972641724,
+            -1.0401473784922315,
+            0.7148552223691208
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1,
+            1
+          ],
+          "appearAt": 1.5,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772396819315_rsmm3",
+          "type": "lottie",
+          "url": "animations/jarro-2/2-5/Jarro 2-5.json",
+          "name": "Jarro 2-5.json",
+          "position": [
+            -0.7955666732862052,
+            0.7680331870425402,
+            0.18918414829413022
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            0.8,
+            1
+          ],
+          "appearAt": 2,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "flagWave": true
+        },
+        {
+          "id": "el_1772396867261_n4ckw",
+          "type": "lottie",
+          "url": "animations/jarro-2/2-6/Jarro 2-6.json",
+          "name": "Jarro 2-6.json",
+          "position": [
+            0,
+            -0.3240219454257755,
+            0.357485553831591
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.5,
+            1
+          ],
+          "appearAt": 2.5,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": false
+        },
+        {
+          "id": "el_1772396911423_7ofqa",
+          "type": "video",
+          "url": "videos/video-goles.mp4",
+          "name": "video-goles.mp4",
+          "position": [
+            0,
+            -0.2215145306674,
+            0.5368553678279468
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "appearAt": 4,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1773388526116_vip4u",
+          "type": "lottie",
+          "url": "animations/video-frame/videoframe.json",
+          "name": "Nueva Animación",
+          "position": [
+            0,
+            -0.22366563231203457,
+            0.4957417171801892
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            2,
+            1.4,
+            1
+          ],
+          "appearAt": 4,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": false
+        },
+        {
+          "id": "el_1773388953349_qiok4",
+          "type": "lottie",
+          "url": "animations/mano1/mano1.json",
+          "name": "Nueva Animación",
+          "position": [
+            -0.908007495793909,
+            0.30178268907480943,
+            0.3881288140165771
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.3,
+            0.3,
+            1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": true
+        },
+        {
+          "id": "el_1773389029405_s98rz",
+          "type": "lottie",
+          "url": "animations/mano2/mano2.json",
+          "name": "Nueva Animación",
+          "position": [
+            1.0621613001187304,
+            0.3,
+            0.338
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.3,
+            0.3,
+            1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": true
+        }
+      ]
+    },
+    {
+      "id": "scene_1772401891492_2",
+      "name": "Escena 3",
+      "targetImageIndex": 2,
+      "elements": [
+        {
+          "id": "el_1772401899666_flvwa",
+          "type": "lottie",
+          "url": "animations/jarro-3/3-1/Jarro 3-1.json",
+          "name": "Jarro 3-1.json",
+          "position": [
+            -0.9524268648231999,
+            1.129584302732467,
+            0.3259312093931902
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.4,
+            1,
+            1
+          ],
+          "appearAt": 1,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "flagWave": true
+        },
+        {
+          "id": "el_1772401938638_p2yz7",
+          "type": "lottie",
+          "url": "animations/jarro-3/3-2/Jarro 3-2.json",
+          "name": "Jarro 3-2.json",
+          "position": [
+            0.7793192022616997,
+            1.0745426848461883,
+            0.3138986320906127
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "appearAt": 0.5,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772401998406_dzfsd",
+          "type": "lottie",
+          "url": "animations/jarro-3/3-4/Jarro 3-4.json",
+          "name": "Jarro 3-4.json",
+          "position": [
+            0.6781180381163024,
+            -1.0396936303968378,
+            0.7110351487805766
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.3,
+            1.3,
+            1
+          ],
+          "appearAt": 1.5,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772402026646_y6ekg",
+          "type": "lottie",
+          "url": "animations/jarro-3/3-5/Jarro 3-5.json",
+          "name": "Jarro 3-5.json",
+          "position": [
+            0,
+            1.046324901375708,
+            0.12132956555729985
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1.3,
+            1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772402063737_l3c0q",
+          "type": "lottie",
+          "url": "animations/jarro-3/3-6/Jarro 3-6.json",
+          "name": "Jarro 3-6.json",
+          "position": [
+            0,
+            0,
+            0.5356211318566868
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1.3,
+            1
+          ],
+          "appearAt": 2,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": false
+        },
+        {
+          "id": "el_1772402118235_q2j0j",
+          "type": "lottie",
+          "url": "animations/jarro-3/3-7/Jarro 3-7.json",
+          "name": "Jarro 3-7.json",
+          "position": [
+            -0.5770000378538995,
+            -1.1537707748470971,
+            0.7380402756729789
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.5,
+            1
+          ],
+          "appearAt": 2.5,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772402167978_7op15",
+          "type": "video",
+          "url": "videos/video-goles.mp4",
+          "name": "video-goles.mp4",
+          "position": [
+            0,
+            -0.044264039966804725,
+            0.6086579599448152
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "appearAt": 4,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1773196624066_khx60",
+          "type": "obj3d",
+          "url": "models/balon.glb",
+          "name": "Balon",
+          "position": [
+            -0.8314216948428491,
+            0.42024049517750645,
+            0.69
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "autoRotate": true,
+          "autoRotateSpeed": 1
+        },
+        {
+          "id": "el_1773196690040_jvr0x",
+          "type": "obj3d",
+          "url": "models/balon.glb",
+          "name": "Balon",
+          "position": [
+            0.8197055442368275,
+            0.42,
+            0.69
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "autoRotate": true,
+          "autoRotateSpeed": 1
+        },
+        {
+          "id": "el_1773388638668_1cjmx",
+          "type": "lottie",
+          "url": "animations/video-frame/videoframe.json",
+          "name": "Nueva Animación",
+          "position": [
+            0,
+            -0.045233981274401036,
+            0.5936844045044023
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            2,
+            1.4,
+            1
+          ],
+          "appearAt": 4,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": false
+        }
+      ]
+    },
+    {
+      "id": "scene_1772402395001_3",
+      "name": "Escena 4",
+      "targetImageIndex": 3,
+      "elements": [
+        {
+          "id": "el_1772402419825_41lzs",
+          "type": "lottie",
+          "url": "animations/jarro-4/4-2/Jarro 4-1.json",
+          "name": "Jarro 4-1.json",
+          "position": [
+            0.8097314296734748,
+            0.8542799626469267,
+            0.20136425824157766
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.3,
+            1,
+            1
+          ],
+          "appearAt": 0.5,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "flagWave": true
+        },
+        {
+          "id": "el_1772402458697_d3ot9",
+          "type": "lottie",
+          "url": "animations/jarro-4/4-3/4-3.json",
+          "name": "4-3.json",
+          "position": [
+            0.9568046832796508,
+            -0.4817434313792851,
+            0.6989386779857738
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.2,
+            1.2,
+            1.5
+          ],
+          "appearAt": 1,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772402555830_ttcp4",
+          "type": "lottie",
+          "url": "animations/jarro-4/4-5/4-5.json",
+          "name": "4-5.json",
+          "position": [
+            0.5188919551808738,
+            -1.0233679165437342,
+            0.5439215491135687
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "appearAt": 2,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": false
+        },
+        {
+          "id": "el_1772402625311_t2lz7",
+          "type": "lottie",
+          "url": "animations/jarro-4/4-6/4-6.json",
+          "name": "4-6.json",
+          "position": [
+            0,
+            0.8982018765297698,
+            0.10052771697283835
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1.3,
+            1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1772402690160_g0gyp",
+          "type": "lottie",
+          "url": "animations/jarro-4/4-7/4-7.json",
+          "name": "4-7.json",
+          "position": [
+            0,
+            -0.20795544143254346,
+            0.41475828330663234
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.3,
+            1.5,
+            1
+          ],
+          "appearAt": 2.5,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": false
+        },
+        {
+          "id": "el_1772402998383_w5njm",
+          "type": "video",
+          "url": "videos/video-goles.mp4",
+          "name": "video-goles.mp4",
+          "position": [
+            0,
+            -0.12486854054913646,
+            0.4728322356779915
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.7,
+            0.7,
+            1
+          ],
+          "appearAt": 4.5,
+          "fadeInDuration": 0.5,
+          "visible": true
+        },
+        {
+          "id": "el_1773195835863_kaglx",
+          "type": "lottie",
+          "url": "animations/jarro-4/4-4/4-4.json",
+          "name": "Nueva Animación",
+          "position": [
+            -0.766776722599446,
+            -0.8398417086349024,
+            0.6023174699486408
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            0.9,
+            1
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": true
+        },
+        {
+          "id": "el_1773386110341_nup6j",
+          "type": "obj3d",
+          "url": "models/copa-final5.glb",
+          "name": "Nuevo Modelo 3D",
+          "position": [
+            -0.6157909033865865,
+            0.5487183013225994,
+            0.1860204924313788
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "appearAt": 0,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "autoRotate": true,
+          "autoRotateSpeed": 1
+        },
+        {
+          "id": "el_1773388690398_jxwar",
+          "type": "lottie",
+          "url": "animations/video-frame/videoframe.json",
+          "name": "Nueva Animación",
+          "position": [
+            0,
+            -0.11839137204986455,
+            0.43921961574111434
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            2,
+            1.4,
+            1
+          ],
+          "appearAt": 4,
+          "fadeInDuration": 0.5,
+          "visible": true,
+          "loop": false
+        }
+      ]
+    }
+  ]
+}

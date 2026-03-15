@@ -11,9 +11,13 @@ use App\Controllers\TournamentController;
 use App\Controllers\LocationController;
 use Tuupola\Middleware\JwtAuthentication;
 
-require __DIR__ . '/../vendor/autoload.php';
+//require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $app = AppFactory::create();
+
+// Auto-detect base path for subdirectory deployments (e.g. /amstel/api/)
+$app->setBasePath(dirname($_SERVER['SCRIPT_NAME']));
 
 // Parsear JSON del body automáticamente
 $app->addBodyParsingMiddleware();
@@ -39,7 +43,8 @@ $app->add(function ($request, $handler) {
 });
 
 // Configuración de BD
-$dbConfig = require __DIR__ . '/../config/database.php';
+//$dbConfig = require __DIR__ . '/../config/database.php';
+$dbConfig = require __DIR__ . '/config/database.php';
 $dsn = "mysql:host={$dbConfig['host']};dbname={$dbConfig['db']};charset={$dbConfig['charset']}";
 $pdo = new PDO($dsn, $dbConfig['user'], $dbConfig['pass'], $dbConfig['options']);
 
@@ -67,9 +72,10 @@ $app->get('/api/stadiums/{slug}', [$stadiumController, 'getBySlug']);
 
 $tournamentController = new TournamentController($pdo);
 $app->get('/api/tournaments', [$tournamentController, 'getAll']);
-$app->get('/api/tournaments/{year}/phases', [$tournamentController, 'getPhases']);
+$app->get('/api/tournaments/years', [$tournamentController, 'getAll']);
+$app->get('/api/tournaments/{id}/phases', [$tournamentController, 'getPhases']);
 $app->get('/api/tournaments/phases/{slug}/videos', [$tournamentController, 'getVideos']);
-$app->get('/api/tournaments/{year}/final', [$tournamentController, 'getFinalData']);
+$app->get('/api/tournaments/{id}/final', [$tournamentController, 'getFinalData']);
 
 $locationController = new LocationController($pdo);
 $app->get('/api/locations/cities', [$locationController, 'getCities']);
@@ -95,6 +101,7 @@ $app->group('/api/admin', function ($group) use ($pdo) {
 
     // Fases
     $group->post('/phases', [$tournamentController, 'createPhase']);
+    $group->put('/phases/bulk-toggle', [$tournamentController, 'bulkTogglePhase']);
     $group->put('/phases/{id}', [$tournamentController, 'updatePhase']);
     $group->delete('/phases/{id}', [$tournamentController, 'deletePhase']);
 

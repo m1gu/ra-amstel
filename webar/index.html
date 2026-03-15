@@ -12,6 +12,16 @@
     <!-- MindAR (Includes its own Three.js) -->
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-three.prod.js"></script>
 
+    <!-- Import Map for Three.js ES Modules (necesario para GLTFLoader) -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.147.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.147.0/examples/jsm/"
+            }
+        }
+    </script>
+
     <!-- Lottie -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
@@ -23,8 +33,20 @@
     <!-- UI Overlay -->
     <div id="ui-overlay">
         <div id="loading-screen" class="overlay-screen">
-            <div class="loader"></div>
-            <p>Preparando experiencia AR...</p>
+            <div class="loading-content">
+                <div class="loading-logo">AMSTEL</div>
+                <p class="loading-subtitle">EXPERIENCIA AR</p>
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span id="progress-text">Inicializando...</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="scan-hint" class="overlay-screen hidden">
@@ -35,11 +57,54 @@
         <div id="ui-controls" class="hidden">
             <button id="reset-btn">🔄 Reiniciar</button>
             <button id="audio-toggle">🔊</button>
+            <button id="debug-toggle" style="opacity: 0.3; font-size: 10px;">DEBUG</button>
+        </div>
+
+        <!-- Debug Console for Mobile -->
+        <div id="debug-console" class="hidden"
+            style="position: absolute; bottom: 10px; left: 10px; right: 10px; height: 150px; background: rgba(0,0,0,0.8); color: #0f0; font-family: monospace; font-size: 10px; overflow-y: auto; padding: 5px; z-index: 9999; pointer-events: auto; border: 1px solid #0f0;">
+            <div
+                style="border-bottom: 1px solid #0f0; margin-bottom: 5px; display: flex; justify-content: space-between;">
+                <span>LOGS DE SISTEMA</span>
+                <button onclick="document.getElementById('debug-console').classList.add('hidden')"
+                    style="background:none; color:#0f0; border:none; cursor:pointer;">[X]</button>
+            </div>
+            <div id="debug-log"></div>
         </div>
     </div>
 
     <!-- Main Logic -->
-    <script type="module" src="js/app.js"></script>
+    <script>
+        // Interceptar consola para el log en pantalla
+        const debugLog = (msg, type = 'log') => {
+            const container = document.getElementById('debug-log');
+            if (!container) return;
+            const entry = document.createElement('div');
+            entry.style.color = type === 'error' ? '#f00' : (type === 'warn' ? '#ff0' : '#0f0');
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            container.appendChild(entry);
+            container.scrollTop = container.scrollHeight;
+        };
+        const _log = console.log;
+        const _warn = console.warn;
+        const _error = console.error;
+        console.log = (...args) => { _log(...args); debugLog(args.join(' '), 'log'); };
+        console.warn = (...args) => { _warn(...args); debugLog(args.join(' '), 'warn'); };
+        console.error = (...args) => { _error(...args); debugLog(args.join(' '), 'error'); };
+
+        window.addEventListener('load', () => {
+            document.getElementById('debug-toggle')?.addEventListener('click', () => {
+                document.getElementById('debug-console').classList.toggle('hidden');
+            });
+        });
+    </script>
+    <!-- Cache Buster: Fuerza al navegador a descargar siempre la última versión de los scripts -->
+    <script>
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = 'js/app.js?v=' + Date.now();
+        document.body.appendChild(script);
+    </script>
 </body>
 
 </html>

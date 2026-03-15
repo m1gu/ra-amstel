@@ -1,33 +1,38 @@
 /**
  * Animation Player - Handles Lottie animations using Canvas renderer for Three.js integration
+ * Supports loop control and ddd:0 fix for After Effects 3D layers.
  */
 export class AnimationPlayer {
     constructor() {
         this.animation = null;
         this.canvas = document.createElement('canvas');
-        // Usamos una resolución base alta para que se vea nítido
         this.canvas.width = 1024;
         this.canvas.height = 1024;
         this.isPlaying = false;
+        this.loop = false; // Controlled by scenes.json
         this.onCompleteCallback = null;
     }
 
-    async load(path) {
+    async load(path, options = {}) {
         console.log("Cargando animación Lottie:", path);
+        this.loop = options.loop !== undefined ? options.loop : false;
+
         try {
-            // 1. Obtener los datos primero para conocer las dimensiones reales
             const response = await fetch(path);
             const ad = await response.json();
+
+            // Fix ddd:0 - canvas renderer doesn't support 3D layers
+            ad.ddd = 0;
+            if (ad.layers) {
+                ad.layers.forEach(layer => { layer.ddd = 0; });
+            }
+
             const width = ad.w || 1024;
             const height = ad.h || 1024;
 
-            // Limpiamos rastro de pruebas anteriores
-            const oldContainer = document.getElementById('lottie-hidden-container');
-            if (oldContainer) oldContainer.remove();
-
+            const containerId = `lottie-container-${Math.random().toString(36).substr(2, 9)}`;
             const container = document.createElement('div');
-            container.id = 'lottie-hidden-container';
-            // IMPORTANTE: No usar 'display: none' porque Lottie lo detecta como 0x0
+            container.id = containerId;
             container.style.position = 'absolute';
             container.style.top = '-9999px';
             container.style.left = '-9999px';
@@ -40,13 +45,12 @@ export class AnimationPlayer {
                 this.animation = lottie.loadAnimation({
                     container: container,
                     renderer: 'canvas',
-                    loop: false,
+                    loop: this.loop,
                     autoplay: false,
                     animationData: ad,
                     rendererSettings: {
                         preserveAspectRatio: 'xMidYMid meet',
-                        clearCanvas: true,
-                        dpr: 1 // [CRÍTICO] Evita que Lottie use el Pixel Ratio del móvil, manteniendo el 1:1
+                        clearCanvas: true
                     }
                 });
 
@@ -59,13 +63,14 @@ export class AnimationPlayer {
                         lottieCanvas.style.height = height + 'px';
                         this.canvas = lottieCanvas;
                     }
-                    console.log("Lottie: Animación centrada y bloqueada a DPR 1.");
+                    console.log("Lottie: Animación lista. Loop:", this.loop, "Size:", width, "x", height);
                     resolve();
                 });
 
                 this.animation.addEventListener('complete', () => {
-                    console.log("Lottie: Animación completada");
-                    this.isPlaying = false;
+                    if (!this.loop) {
+                        this.isPlaying = false;
+                    }
                     if (this.onCompleteCallback) this.onCompleteCallback();
                 });
             });
@@ -80,7 +85,7 @@ export class AnimationPlayer {
         this.onCompleteCallback = onComplete;
         this.isPlaying = true;
         this.animation.goToAndPlay(0);
-        console.log("Lottie: Reproduciendo...");
+        console.log("Lottie: Reproduciendo... Loop:", this.loop);
     }
 
     getCanvas() {
@@ -89,17 +94,6 @@ export class AnimationPlayer {
 
     update() {
         if (!this.animation || !this.canvas || this.canvas.width === 0) return true;
-
-        // --- GUÍA DE DIAGNÓSTICO (Temporal) ---
-        // Dibujamos un borde verde alrededor del canvas para ver su límite real en AR
-        const ctx = this.canvas.getContext('2d');
-        if (ctx) {
-            ctx.strokeStyle = "#00ff00";
-            ctx.lineWidth = 10;
-            ctx.strokeRect(0, 0, this.canvas.width, this.canvas.height);
-        }
-        // ---------------------------------------
-
         return this.isPlaying;
     }
 }

@@ -3,9 +3,9 @@
 
 return [
     'host' => 'localhost',
-    'db' => 'amstel_webar',
-    'user' => 'root',
-    'pass' => '',
+    'db' => 'novapubl_amstel',
+    'user' => 'novapubl_amsteluser',
+    'pass' => 'AmstelUser',
     'charset' => 'utf8mb4',
     'options' => [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

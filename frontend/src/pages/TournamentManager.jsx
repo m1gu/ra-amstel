@@ -72,6 +72,27 @@ const TournamentManager = () => {
         setLoading(false);
     };
 
+    const handleBulkToggle = async (phase) => {
+        const newStatus = phase.is_unlocked ? 0 : 1;
+        const confirmMsg = `¿Estás seguro de ${newStatus ? 'ACTIVAR' : 'DESACTIVAR'} la fase "${phase.name}" en TODOS los años de forma sincronizada?`;
+        if (!window.confirm(confirmMsg)) return;
+
+        setLoading(true);
+        try {
+            await api.put('/admin/phases/bulk-toggle', {
+                name: phase.name,
+                is_unlocked: newStatus
+            });
+            // Refrescar para ver el cambio
+            await fetchPhases(selectedYear.year);
+            alert(`La fase "${phase.name}" se ha ${newStatus ? 'activado' : 'desactivado'} en todos los años.`);
+        } catch (err) {
+            console.error("Error toggling phases:", err);
+            alert("Error al actualizar la visibilidad masiva.");
+        }
+        setLoading(false);
+    };
+
     // --- RENDERERS ---
 
     const renderYears = () => (
@@ -124,14 +145,38 @@ const TournamentManager = () => {
                         {phases.map(p => (
                             <tr key={p.id} style={{ borderTop: '1px solid var(--border)' }}>
                                 <td style={tdStyle}><strong>{p.name}</strong></td>
-                                <td style={tdStyle}><span className="badge">{p.phase_type}</span></td>
-                                <td style={tdStyle}>{p.is_unlocked ? '🔓 Abierto' : '🔒 Bloqueado'}</td>
                                 <td style={tdStyle}>
-                                    <div style={{ display: 'flex', gap: '0.5rem' }}>
-                                        <button className="icon-btn" onClick={() => { setSelectedPhase(p); setView('videos'); }}>
-                                            <Video size={16} /> Videos
+                                    <span className={`badge ${p.is_unlocked ? 'badge-success' : 'badge-danger'}`} style={{
+                                        backgroundColor: p.is_unlocked ? '#def7ec' : '#fde8e8',
+                                        color: p.is_unlocked ? '#03543f' : '#9b1c1c',
+                                        padding: '0.3rem 0.6rem',
+                                        borderRadius: '4px',
+                                        fontWeight: '600',
+                                        fontSize: '0.8rem'
+                                    }}>
+                                        {p.is_unlocked ? '🔓 Visible' : '🔒 Oculto'}
+                                    </span>
+                                </td>
+                                <td style={tdStyle}>
+                                    <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
+                                        <button
+                                            className="btn-secondary"
+                                            onClick={() => handleBulkToggle(p)}
+                                            style={{
+                                                padding: '0.4rem 0.8rem',
+                                                fontSize: '0.8rem',
+                                                backgroundColor: p.is_unlocked ? '#fee2e2' : '#dcfce7',
+                                                color: p.is_unlocked ? '#991b1b' : '#166534',
+                                                border: 'none',
+                                                cursor: 'pointer'
+                                            }}
+                                            title="Cambia la visibilidad de esta fase en todos los años a la vez"
+                                        >
+                                            {p.is_unlocked ? 'Ocultar Global' : 'Activar Global'}
                                         </button>
-                                        <button className="icon-btn"><Edit2 size={16} /></button>
+                                        <button className="icon-btn" onClick={() => { setSelectedPhase(p); setView('videos'); }} title="Gestionar Videos">
+                                            <Video size={16} />
+                                        </button>
                                     </div>
                                 </td>
                             </tr>

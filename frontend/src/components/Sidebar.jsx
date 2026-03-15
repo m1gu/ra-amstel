@@ -1,80 +1,59 @@
 // frontend/src/components/Sidebar.jsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { BarChart3, Settings, LogOut, Layout } from 'lucide-react';
+import { BarChart3, Layers, Trophy, MapPin, LogOut } from 'lucide-react';
 
 const Sidebar = ({ handleLogout }) => {
     return (
         <div className="sidebar">
-            <div style={{ marginBottom: '3rem', paddingLeft: '1rem' }}>
-                <h2 style={{ color: 'var(--primary)', letterSpacing: '1px' }}>AMSTEL</h2>
-                <span style={{ fontSize: '0.8rem', opacity: 0.6 }}>ECOSISTEMA AR</span>
+            <div className="sidebar-header">
+                <h2 className="sidebar-brand">AMSTEL</h2>
+                <span className="sidebar-subtitle">Panel de Control</span>
             </div>
 
-            <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <nav className="sidebar-nav">
                 <NavLink
-                    to="/"
-                    className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-                    style={navStyle}
+                    to="/admin"
+                    end
+                    className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
                 >
-                    <BarChart3 size={20} /> Dashboard
+                    <BarChart3 size={20} />
+                    <span>Dashboard</span>
                 </NavLink>
 
                 <NavLink
-                    to="/cms"
-                    className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-                    style={navStyle}
+                    to="/admin/cms"
+                    className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
                 >
-                    <Settings size={20} /> Contenido AR
+                    <Layers size={20} />
+                    <span>Contenido AR</span>
                 </NavLink>
 
                 <NavLink
-                    to="/tournaments"
-                    className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-                    style={navStyle}
+                    to="/admin/tournaments"
+                    className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
                 >
-                    <Layout size={20} /> Torneos y Videos
+                    <Trophy size={20} />
+                    <span>Torneos y Videos</span>
                 </NavLink>
 
                 <NavLink
-                    to="/locations"
-                    className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-                    style={navStyle}
+                    to="/admin/locations"
+                    className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
                 >
-                    <Settings size={20} /> Puntos de Venta
+                    <MapPin size={20} />
+                    <span>Puntos de Venta</span>
                 </NavLink>
             </nav>
 
-            <div style={{ position: 'absolute', bottom: '2rem', width: 'calc(100% - 2rem)' }}>
-                <button
-                    onClick={handleLogout}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        background: 'transparent',
-                        color: 'white',
-                        opacity: 0.7,
-                        padding: '1rem'
-                    }}
-                >
-                    <LogOut size={20} /> Salir
+            <div className="sidebar-footer">
+                <button onClick={handleLogout} className="sidebar-logout">
+                    <LogOut size={18} />
+                    <span>Cerrar Sesión</span>
                 </button>
             </div>
         </div>
     );
-};
-
-const navStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-    padding: '1rem',
-    color: 'white',
-    textDecoration: 'none',
-    borderRadius: 'var(--radius-md)',
-    transition: 'all 0.2s',
-    fontWeight: '500'
 };
 
 export default Sidebar;

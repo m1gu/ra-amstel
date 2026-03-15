@@ -1,21 +1,28 @@
 // frontend/src/pages/Login.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
 const Login = ({ setToken }) => {
     const [email, setEmail] = useState('admin@amstel.ec');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setError('');
         try {
             const response = await api.post('/auth/login', { email, password });
             if (response.data.success) {
                 localStorage.setItem('amstel_token', response.data.token);
                 setToken(response.data.token);
+                navigate('/admin', { replace: true });
+            } else {
+                setError('Credenciales incorrectas. Intente de nuevo.');
             }
         } catch (err) {
+            console.error('Login error:', err);
             setError('Credenciales incorrectas. Intente de nuevo.');
         }
     };
@@ -65,3 +72,4 @@ const Login = ({ setToken }) => {
 };
 
 export default Login;
+

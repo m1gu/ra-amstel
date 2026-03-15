@@ -33,16 +33,16 @@ class TournamentController
      */
     public function getPhases(Request $request, Response $response, array $args): Response
     {
-        $year = $args['year'];
+        $id = $args['id'];
 
         $stmt = $this->db->prepare("
             SELECT tp.* 
             FROM tournament_phases tp
             JOIN tournaments t ON tp.tournament_id = t.id
-            WHERE t.year = ? AND t.is_active = 1
+            WHERE t.id = ? AND t.is_active = 1
             ORDER BY tp.display_order ASC
         ");
-        $stmt->execute([$year]);
+        $stmt->execute([$id]);
         $phases = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $response->getBody()->write(json_encode($phases));
@@ -75,15 +75,15 @@ class TournamentController
      */
     public function getFinalData(Request $request, Response $response, array $args): Response
     {
-        $year = $args['year'];
+        $id = $args['id'];
 
         $stmt = $this->db->prepare("
             SELECT tf.* 
             FROM tournament_finals tf
             JOIN tournaments t ON tf.tournament_id = t.id
-            WHERE t.year = ?
+            WHERE t.id = ?
         ");
-        $stmt->execute([$year]);
+        $stmt->execute([$id]);
         $final = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$final) {
@@ -198,6 +198,24 @@ class TournamentController
         $stmt = $this->db->prepare("DELETE FROM tournament_phases WHERE id = ?");
         $stmt->execute([$id]);
         return $response->withStatus(204);
+    }
+
+    /**
+     * Activar/Desactivar una fase de forma masiva en todos los años
+     */
+    public function bulkTogglePhase(Request $request, Response $response): Response
+    {
+        $data = $request->getParsedBody();
+        if (!isset($data['name']) || !isset($data['is_unlocked'])) {
+            $response->getBody()->write(json_encode(['error' => 'Missing parameters name or is_unlocked']));
+            return $response->withStatus(400)->withHeader('Content-Type', 'application/json');
+        }
+
+        $stmt = $this->db->prepare("UPDATE tournament_phases SET is_unlocked = ? WHERE name = ?");
+        $stmt->execute([$data['is_unlocked'], $data['name']]);
+
+        $response->getBody()->write(json_encode(['status' => 'success', 'updated_rows' => $stmt->rowCount()]));
+        return $response->withStatus(200)->withHeader('Content-Type', 'application/json');
     }
 
     /**

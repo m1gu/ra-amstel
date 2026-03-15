@@ -2,7 +2,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8001/api', // Puerto configurado en el backend
+    //baseURL: 'http://localhost:8001/api', // Puerto configurado en el backend
+    baseURL: '/amstel/api/api',
 });
 
 // Interceptor para añadir el token JWT a todas las peticiones

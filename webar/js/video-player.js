@@ -33,7 +33,7 @@ export class VideoPlayer {
 
             this.video.oncanplaythrough = () => {
                 console.log("Video: Cargado y listo.");
-                const THREE = window.THREE || window.MINDAR?.IMAGE?.THREE;
+                const THREE = window.MINDAR?.IMAGE?.THREE;
                 this.texture = new THREE.VideoTexture(this.video);
                 resolve();
             };
